@@ -1,22 +1,21 @@
-# GA4 Journey analysis
-A Big Query SQL request to simplify journey analysis from Google Analytics 4
+# GA4 Hourly alerting
+A Big Query SQL request to monitor and explain GA4 metrics on hourly basis. 
 
-It helps generating a file that contains user "Journeys" (with column that is "Journey") that can then be used for visualizing sunbursts and optimizing behaviors
+It helps generating a file that containing previous data from both day and intra day Google Analytics 4 Big Query exports and make sure it includes all data on last few days up to previous hour from current time
 
-A good example of usage can be found on this article explaining [how to get value from a sunburst](https://www.datama.io/getting-value-out-of-a-sunburst/))
+A good example of usage can be found on this article explaining [how to use Datama Detect for hourly GA4 anomaly alerting](https://datama.io/hourly-anomaly-detection-and-explanation-on-ga4-google-analytics-4/)
 
 Here is a step by step guide on how to use it
 
-0. Make sure you have connected  GA4 to Big Query
+0. Make sure you have connected  GA4 to Big Query, including the "Streaming" option for continious export of data
    You can find tutorials here: [connect GA4 to BigQuery](https://support.google.com/analytics/answer/9823238?hl=en#zippy=%2Cin-this-article) (for all clients)
-   
 1. Copy Paste the file [GA4_Hourly_schedule.sql](https://github.com/DataMa-Solutions/GA4-Hourly/blob/main/GA4_Hourly_schedule.sql) in a Big Query SQL environment (or if you are familiar with git, clone it on desired place)
-2. Specify the proper dates for analysis in the query by replacing with your own dates if need be - that would be typically the last week
-3. Find and replace the name of the GA4 (```your_project.your_GA4_ID.events_20*```) event tables with the proper names of your table in the whole query
-4. Find and replace the name of the key tracking page type (```content_group```) in your own set up
-5. Run the query and download results - data should look like [this](https://docs.google.com/spreadsheets/d/1Z2JovUx_q7uLR2iy_fukiJWpIrA1o5wfvfnaHQUgBE4/edit#gid=0)
-6. Visualize the Journeys and get insights 
-   . You can use any open source packages to visualize sunbursts - [SunburstR](https://cran.r-project.org/web/packages/sunburstR/index.html) is a good option in R
-   . Or you can use DataMa Journey SaaS : create account on [DataMa platform](app.datama.io) and upload your CSV in DataMa Journey - free access is available for 15 days. 
-   DataMa Journey will provide not only Sunbursts visualization but also comparison and attribution features to understand where you can optimize your journeys. 
-   Learn more on [DataMa Journey](https://datama-solutions.github.io/docs/core_app/journey.html) 
+3. Find and replace the name of the GA4 (```***.analytics_*****.events_*```) event tables with the proper names of your table in the whole query
+2. [Optional] Specify the proper number of days you want to include in the analysis by changing the time window on ```Min_Date``` definition
+4. [Optional] Find and replace the name of the key tracking page type (```content_group```) in your own set up
+5. Run the query and visualize results - data should look like [this](https://docs.google.com/spreadsheets/d/1Z2JovUx_q7uLR2iy_fukiJWpIrA1o5wfvfnaHQUgBE4/edit#gid=0)
+6. Detect anomalies and trigger emails
+   . You can build your own system for both detecting anomalies and sending those anomalies to final recipients. To do so, BigQuery [DETECT_ANOMALIES](https://cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-detect-anomalies) might be a good start
+   . Or you can use DataMa Detect SaaS for free: create account on [DataMa platform](app.datama.io) and connect your BigQuery data in DataMa Detect.
+   DataMa Detect will provide not only anomaly detection but also explanation for those anomalies withing requested dimensions. 
+   Please read this [article](https://datama.io/hourly-anomaly-detection-and-explanation-on-ga4-google-analytics-4/) to get started
