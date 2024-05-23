@@ -12,7 +12,7 @@ Here is a step by step guide on how to use it
 1. Copy Paste the file [GA4_Hourly_schedule.sql](https://github.com/DataMa-Solutions/GA4-Hourly/blob/main/GA4_Hourly_schedule.sql) in a Big Query SQL environment (or if you are familiar with git, clone it on desired place)
 3. Find and replace the name of the GA4 (```***.analytics_*****.events_*```) event tables with the proper names of your table in the whole query
 2. [Optional] Specify the proper number of days you want to include in the analysis by changing the time window on ```Min_Date``` definition
-4. [Optional] Find and replace the name of the key tracking page type (```content_group```) in your own set up
+4. [Optional] Find and replace the events you want to track for anomalies (e.g. session_start or purchases) and the dimensions that you want to collect to explain those anomalies (e.g. Devices)
 5. Run the query and visualize results - data should look like [this](https://docs.google.com/spreadsheets/d/1Z2JovUx_q7uLR2iy_fukiJWpIrA1o5wfvfnaHQUgBE4/edit#gid=0)
 6. Detect anomalies and trigger emails
 
