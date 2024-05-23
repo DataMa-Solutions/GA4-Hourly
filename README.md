@@ -15,7 +15,11 @@ Here is a step by step guide on how to use it
 4. [Optional] Find and replace the name of the key tracking page type (```content_group```) in your own set up
 5. Run the query and visualize results - data should look like [this](https://docs.google.com/spreadsheets/d/1Z2JovUx_q7uLR2iy_fukiJWpIrA1o5wfvfnaHQUgBE4/edit#gid=0)
 6. Detect anomalies and trigger emails
+
    . You can build your own system for both detecting anomalies and sending those anomalies to final recipients. To do so, BigQuery [DETECT_ANOMALIES](https://cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-detect-anomalies) might be a good start
+
    . Or you can use DataMa Detect SaaS for free: create account on [DataMa platform](app.datama.io) and connect your BigQuery data in DataMa Detect.
    DataMa Detect will provide not only anomaly detection but also explanation for those anomalies withing requested dimensions. 
-   Please read this [article](https://datama.io/hourly-anomaly-detection-and-explanation-on-ga4-google-analytics-4/) to get started
+   Please read this [article](https://datama.io/hourly-anomaly-detection-and-explanation-on-ga4-google-analytics-4/) to get started 
+
+![Anomaly detection Message](https://github.com/DataMa-Solutions/GA4-Hourly/assets/61363175/ceb70b2a-8042-49e6-bef7-363e9d04e30f)
