@@ -19,7 +19,7 @@ Here is a step by step guide on how to use it
    . You can build your own system for both detecting anomalies and sending those anomalies to final recipients. To do so, BigQuery [DETECT_ANOMALIES](https://cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-detect-anomalies) might be a good start
 
    . Or you can use DataMa Detect SaaS for free: create account on [DataMa platform](app.datama.io) and connect your BigQuery data in DataMa Detect.
-   DataMa Detect will provide not only anomaly detection but also explanation for those anomalies withing requested dimensions. 
+   DataMa Detect will provide not only anomaly detection in your favorite messaging app but also explanation for those anomalies withing requested dimensions. 
    Please read this [article](https://datama.io/hourly-anomaly-detection-and-explanation-on-ga4-google-analytics-4/) to get started 
 
 ![Anomaly detection Message](https://github.com/DataMa-Solutions/GA4-Hourly/assets/61363175/ceb70b2a-8042-49e6-bef7-363e9d04e30f)
